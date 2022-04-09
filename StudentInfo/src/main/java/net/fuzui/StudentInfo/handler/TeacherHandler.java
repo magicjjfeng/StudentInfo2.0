@@ -1,11 +1,13 @@
 package net.fuzui.StudentInfo.handler;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.fuzui.StudentInfo.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,14 +23,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import net.fuzui.StudentInfo.pojo.Course;
-import net.fuzui.StudentInfo.pojo.CourseGrade;
-import net.fuzui.StudentInfo.pojo.CoursePlan;
-import net.fuzui.StudentInfo.pojo.Grade;
-import net.fuzui.StudentInfo.pojo.StuExitSelect;
-import net.fuzui.StudentInfo.pojo.StuSelectResult;
-import net.fuzui.StudentInfo.pojo.Student;
-import net.fuzui.StudentInfo.pojo.Teacher;
 import net.fuzui.StudentInfo.service.CoursePlanService;
 import net.fuzui.StudentInfo.service.CourseService;
 import net.fuzui.StudentInfo.service.GradeService;
@@ -96,30 +90,50 @@ public class TeacherHandler {
 	@RequestMapping("/managecou/{tid}/{pn}")
 	public String manageCou(@PathVariable(value = "tid") String tid, Model model, HttpSession httpSession,
 			@PathVariable(value = "pn") String pn) {
-		// Course course = new Course();
+		 Course course = new Course();
 		// CoursePlan coursePlan = new CoursePlan();
 		int no = Integer.parseInt(pn);
 		PageHelper.startPage(no, 5);
 
 		List<CoursePlan> coursePlanList = new ArrayList<CoursePlan>();
 		List<Course> couList = new ArrayList<Course>();
+		coursePlanList.add(new CoursePlan("1","2","3","4","5","6","7","8","9"));
 
 		coursePlanList = coursePlanService.getByCoursePlanTid(1, 10, tid);
+//		Iterator<CoursePlan> iterator = coursePlanList.iterator();
+//		while (iterator.hasNext()){
+//			System.out.println(iterator.next().toString());
+//		}
 		pageIn(model, coursePlanList);
 		// 通过tid查出cid
 		// ------------------此处有bug
 		List<CoursePlan> lists = coursePlanService.getCidByCoursePlanTid(1, 3, tid);
-		// 通过cid查出课程
-		if (lists.size() != 0) {
-			couList = courseService.getByCourseCid(1, 10, lists.get(0).getCid());
 
-			httpSession.setAttribute("coursePlanList", coursePlanList);
-			httpSession.setAttribute("couList", couList);
-
-			System.out.println(coursePlanList);
-
-			System.out.println(couList);
+		Iterator<CoursePlan> iterator1 = lists.iterator();
+		while (iterator1.hasNext()){
+			String cid = iterator1.next().getCid();
+			course = courseService.getByCourseByCid(cid);
+			couList.add(course);
 		}
+
+		httpSession.setAttribute("coursePlanList", coursePlanList);
+		httpSession.setAttribute("couList", couList);
+
+//		Iterator<Course> iterator = couList.iterator();
+//		while (iterator.hasNext()){
+//			System.out.println(iterator.next().toString());
+//		}
+		// 通过cid查出课程
+//		if (lists.size() != 0) {
+//
+//
+//
+
+//
+//			System.out.println(coursePlanList);
+//
+//			System.out.println(couList);
+//		}
 		return "teacher/manageCourse";
 	}
 
@@ -183,8 +197,21 @@ public class TeacherHandler {
 
 		int no = Integer.parseInt(pn);
 		PageHelper.startPage(no, 5);
-		List<Student> lookList = new ArrayList<Student>();
-		lookList = selectCourseService.getByStuSid(1, 10, cid);
+//		List<Grade> gradesList = new ArrayList<>();
+		List<StudentGrade> lookList = new ArrayList<StudentGrade>();
+		lookList = selectCourseService.getByStuGrade(1, 10, cid);
+//		while (iterator.hasNext()){
+//			System.out.println(iterator.next().getSid());
+//		}
+//		gradesList = gradeService.getByCid(cid);
+
+//		while (iterator.hasNext()){
+//			System.out.println(iterator.next().toString());
+//		}
+		Iterator<StudentGrade> iterator1 = lookList.iterator();
+		while (iterator1.hasNext()){
+			System.out.println(iterator1.next());
+		}
 		pageIn(model, lookList);
 		httpSession.setAttribute("lookList", lookList);
 		model.addAttribute("cname", cname);
@@ -214,7 +241,7 @@ public class TeacherHandler {
 
 		}
 
-	// 添加成绩
+	// 添加成绩，更新成绩
 	@RequestMapping(value = "/addGrade", method = RequestMethod.POST)
 	public String addGrade(@RequestParam("cid") String cid, @RequestParam("sid") String sid,
 			@RequestParam("grade") Integer grade, Model model, HttpServletRequest request) {
@@ -231,6 +258,8 @@ public class TeacherHandler {
 		if(grade >= 60) {
 			Integer credits = coursePlanService.getCreditsByCid(cid);
 			g.setCredits(credits);
+		}else {
+			g.setCredits(0);
 		}
 		
 		gradeService.insertGrade(g);

@@ -77,6 +77,16 @@ public class Course implements java.io.Serializable{
         this.belongpro = belongpro;
     }
 
-
+    @Override
+    public String toString() {
+        return "Course{" +
+                "cid='" + cid + '\'' +
+                ", cname='" + cname + '\'' +
+                ", cintroduction='" + cintroduction + '\'' +
+                ", type='" + type + '\'' +
+                ", belongcoll='" + belongcoll + '\'' +
+                ", belongpro='" + belongpro + '\'' +
+                '}';
+    }
 }
 

@@ -23,7 +23,12 @@
 		value (#{tid}, #{tname},#{tpassword},#{tsex},#{introduction})
 	</insert>
 
-    <!-- 根据教师编号删除教师信息 -->
+	<!-- 预先放入成绩信息-->
+	<insert id="insertGradeByCidAndSid">
+		insert into grade(sid,cid) value (#{sid},#{cid})
+	</insert>
+
+	<!-- 根据教师编号删除教师信息 -->
     <delete id="deleteTeacher" parameterType="String">
 		delete from teacher where tid=#{tid}
 	</delete>

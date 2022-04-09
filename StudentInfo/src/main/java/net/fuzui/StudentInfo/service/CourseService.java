@@ -67,6 +67,13 @@ public interface CourseService {
     public List<Course> getByCourseCid(int pageNo, int pageSize,String cid);
 
     /**
+     * 通过cid，不带分页功能查询课程信息
+     * @param cid
+     * @return
+     */
+    public Course getByCourseByCid(String cid);
+
+    /**
      * 根据课程名称查询课程信息
      * @param pageNo
      * @param pageSize

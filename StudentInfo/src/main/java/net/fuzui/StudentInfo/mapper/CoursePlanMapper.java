@@ -79,11 +79,11 @@ public interface CoursePlanMapper {
      * 根据上课时间、地点、查询课程安排信息，为了ajax查重
      * @param coursetime    上课时间
      * @param courseweek    上课周
-     * @param classroom     上课教室
      * @return  查询结果
      */
-    public String ajaxGetCoursePlan(@Param("coursetime") String coursetime,@Param("courseweek") String courseweek,@Param("classroom") String classroom);
+    public String ajaxGetCoursePlanclass(@Param("courseclass") String courseclass,@Param("coursetime") String coursetime,@Param("courseweek") String courseweek);
 
+    public String ajaxGetCoursePlanroom(@Param("coursetime") String coursetime,@Param("courseweek") String courseweek,@Param("classroom") String classroom);
     /**
      *  	根据课程编号查询该课程，用于查询是否有有安排课程
      * @param cid

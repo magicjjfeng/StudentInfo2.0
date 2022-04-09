@@ -211,6 +211,8 @@ public class StudentHandler {
 			return "fail";
 		}
 		if (selectCourseService.selectCourse(cid, sid) != 0) {
+			int i = teacherService.insertGradeByCidAndSid(cid, sid);
+			System.out.println(i);
 			System.out.println(cid);
 			System.out.println(sid);
 			return "success";

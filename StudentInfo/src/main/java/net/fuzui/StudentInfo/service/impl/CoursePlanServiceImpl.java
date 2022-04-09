@@ -3,6 +3,7 @@ package net.fuzui.StudentInfo.service.impl;
 import net.fuzui.StudentInfo.mapper.CoursePlanMapper;
 import net.fuzui.StudentInfo.pojo.CourseGrade;
 import net.fuzui.StudentInfo.pojo.CoursePlan;
+import net.fuzui.StudentInfo.pojo.Msg;
 import net.fuzui.StudentInfo.service.CoursePlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,7 +89,8 @@ public class CoursePlanServiceImpl implements CoursePlanService {
         data.put("pageNo",(pageNo-1) * pageSize);
         data.put("pageSize",pageSize);
         data.put("tid",tid);
-        return coursePlanMapper.getByCoursePlanTid(data);
+        List<CoursePlan> couresPlanList = coursePlanMapper.getByCoursePlanTid(data);
+        return couresPlanList;
     }
 
     /**
@@ -131,9 +133,29 @@ public class CoursePlanServiceImpl implements CoursePlanService {
      * @return  查询结果
      */
     @Override
-    public String ajaxGetCoursePlan(String coursetime, String courseweek, String classroom) {
+    public Msg ajaxGetCoursePlan(String courseclass, String[] coursetime, String[] courseweek, String classroom) {
+//        Msg msg = new Msg();
+//        System.out.println(courseweek.length);
+//        System.out.println(classroom+"232333333333333333333");
+//        System.out.println(courseclass+"44444444444444");
 
-        return coursePlanMapper.ajaxGetCoursePlan(coursetime,courseweek,classroom);
+        for(int i=0; i<coursetime.length; i++){
+
+            for(int n=0; n<courseweek.length; n++){
+
+//                System.out.println(courseclass+"____"+courseweek[n]+"_____"+coursetime[i]+"_____"+classroom);
+                String s = coursePlanMapper.ajaxGetCoursePlanclass(courseclass, coursetime[i], courseweek[n]);
+                String s1 = coursePlanMapper.ajaxGetCoursePlanroom(coursetime[i],courseweek[n],classroom);
+                if(s != null){
+                    return Msg.fail1();
+                }else if(s1 != null){
+                    return Msg.fail2();
+                }
+
+            }
+        }
+
+        return Msg.success();
     }
 
     /**

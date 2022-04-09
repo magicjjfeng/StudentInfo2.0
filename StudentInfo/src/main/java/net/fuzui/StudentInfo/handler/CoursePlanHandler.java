@@ -52,9 +52,10 @@ public class CoursePlanHandler {
 	@RequestMapping("/doaddcouplan/{tid}")
 	public ModelAndView addCoursePlan(CoursePlan coursePlan, Model model,HttpSession httpSession,@PathVariable(value="tid") String tid) {
 
+		System.out.println(coursePlan);
 		if (coursePlanService.insertCoursePlan(coursePlan) != 0) {
 			model.addAttribute("coursePlan", coursePlan);
-			System.out.println(coursePlan);
+//			System.out.println(coursePlan);
 			
 			return new ModelAndView(new RedirectView("/StudentInfo/TeacherHandler/managecou/{tid}/1"));
 			//return "success";

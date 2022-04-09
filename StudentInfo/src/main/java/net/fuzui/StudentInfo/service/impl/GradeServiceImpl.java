@@ -37,4 +37,9 @@ public class GradeServiceImpl implements GradeService {
         return gradeMapper.getEedCourseBySid(data);
 	}
 
+	@Override
+	public List<Grade> getByCid(String cid) {
+		return gradeMapper.getByCid(cid);
+	}
+
 }

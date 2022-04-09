@@ -7,16 +7,20 @@ import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.cj.xdevapi.JsonArray;
+import com.sun.media.sound.SoftTuning;
+import net.fuzui.StudentInfo.pojo.CoursePlan;
+import net.fuzui.StudentInfo.pojo.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import net.fuzui.StudentInfo.service.CoursePlanService;
 import net.fuzui.StudentInfo.service.CourseService;
 import net.fuzui.StudentInfo.service.StudentService;
 import net.fuzui.StudentInfo.service.TeacherService;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * @author fuzui
@@ -86,6 +90,7 @@ public class AjaxHandler {
 	}
 	//ajax验证教师id
 	@RequestMapping(value="/existTid",method = RequestMethod.POST)
+
 	public void existTid(@RequestParam("tid") String tid,HttpServletResponse response,HttpServletRequest request) throws IOException{
  
 		response.setContentType("text/html;charset=UTF-8");
@@ -107,23 +112,39 @@ public class AjaxHandler {
 
 	
 	@RequestMapping(value="/existTime",method = RequestMethod.POST)
-	public void existTime(@RequestParam("coursetime") String coursetime,@RequestParam("courseweek") String courseweek,
-			@RequestParam("classroom") String classroom,HttpServletResponse response,HttpServletRequest request) throws IOException{
- 
-		response.setContentType("text/html;charset=UTF-8");
-		response.setHeader("Cache-Control", "no-cache");
-		PrintWriter out=null;
-		System.out.println("--------------------------");
-		System.out.println(coursetime+"---"+courseweek+"---"+classroom);
-		out=response.getWriter();
-		if(coursePlanService.ajaxGetCoursePlan(coursetime,courseweek,classroom) != null){
-			out.println("此功能排重正在开发中.....");
-		}else {
-			out.println("此功能排重正在开发中.....");
+	@ResponseBody
+	public Msg existTime(@RequestParam("courseclass") String courseclass,
+						 @RequestParam("classroom") String classroom,
+						 @RequestParam("cid") String cid,@RequestParam("tid") String tid,
+						 @RequestParam("credits") String credits,@RequestParam("period") String period,
+						 @RequestParam("totalnum") String totalnum, HttpServletResponse response, HttpServletRequest request) throws IOException{
+
+
+		String courseweek1 = null;
+		String coursetime1 = null;
+//		System.out.println("cid:"+cid+",tid"+tid+",credits:"+credits+",period:"+period+"totalnum:"+totalnum);
+		String[] courseweek = request.getParameterValues("courseweek[]");
+		String[] courseTime = request.getParameterValues("courseTime[]");
+		Msg msg = coursePlanService.ajaxGetCoursePlan(courseclass, courseTime, courseweek, classroom);
+		for(int i=0; i<courseTime.length; i++){
+			coursetime1 += courseTime[i]+",";
 		}
-		out.flush();
-		out.close();
-		
+		for(int n=0; n<courseweek.length; n++){
+			courseweek1 += courseweek[n]+",";
+		}
+		coursetime1 = coursetime1.substring(4,coursetime1.length()-1);
+		courseweek1 = courseweek1.substring(4,courseweek1.length()-1);
+		CoursePlan coursePlan = new CoursePlan(courseclass,coursetime1,courseweek1,cid,tid,classroom,credits,period,totalnum);
+//		System.out.println(coursePlan);
+		if (coursePlanService.insertCoursePlan(coursePlan) != 0) {
+			return msg;
+		} else {
+			return Msg.fail3();
+//			return new ModelAndView(new RedirectView("/StudentInfo/fail.jsp"));
+		}
+
+
+
 	}
 	
 }

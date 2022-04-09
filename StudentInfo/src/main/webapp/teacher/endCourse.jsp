@@ -55,7 +55,7 @@
 						<form id="form${student.sid}${cid}">
 							<input type="hidden" name="sid" value="${student.sid}">
 							<input type="hidden" name="cid" value="${cid}">
-							<input type="text" name="grade" value="">
+							<input type="text" name="grade" id="grade" value="${student.grade}">
 							
 							<input type="submit" value="添加" onclick="add(${cid},${student.sid})" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="3">
 						</form>
@@ -135,6 +135,10 @@
 			        }
 			    })
 			})
+		}
+
+		function grade(){
+			$("#grade")
 		}
 				
 			

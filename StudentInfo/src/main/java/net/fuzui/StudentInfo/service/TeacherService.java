@@ -56,6 +56,9 @@ public interface TeacherService {
      */
     public Teacher getByTeaTid(String tid);
 
+    //预先将选课的sid和cid放入成绩表中
+    public int insertGradeByCidAndSid(String cid,String sid);
+
     /**
      *  教师登录设置
      * @param tid   教师编号（唯一）

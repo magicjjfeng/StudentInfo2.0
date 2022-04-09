@@ -175,7 +175,7 @@ public class CourseHandler {
 	//修改课程信息
 	@RequestMapping(value = "/moditystud/{cid}", method = RequestMethod.GET)
 	public String update(@PathVariable("cid") String cid, Course course, Model model) {
-		
+//		System.out.println("1111fjdsaj;fdjlajfdl");
 		if (courseService.modifyCourse(course) != 0) {
 			return "success";
 		} else {

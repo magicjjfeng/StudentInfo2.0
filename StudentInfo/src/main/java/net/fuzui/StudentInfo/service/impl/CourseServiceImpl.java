@@ -98,6 +98,17 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
+     * 通过cid查询出不带分页功能的课程信息
+     * @param cid
+     * @return
+     */
+    @Override
+    public Course getByCourseByCid(String cid) {
+        return courseMapper.getByCourseByCid(cid);
+    }
+
+
+    /**
      * 根据课程名称查询课程信息
      * @param pageNo
      * @param pageSize

@@ -23,4 +23,9 @@ public interface GradeMapper {
      */
     public List<Grade> getEedCourseBySid(Map<String, Object> data);
 
+    /**
+     * 通过cid获取相应的成绩信息
+     */
+    public List<Grade> getByCid(String cid);
+
 }

@@ -1,10 +1,7 @@
 package net.fuzui.StudentInfo.service.impl;
 
 import net.fuzui.StudentInfo.mapper.SelectCourseMapper;
-import net.fuzui.StudentInfo.pojo.SC;
-import net.fuzui.StudentInfo.pojo.StuExitSelect;
-import net.fuzui.StudentInfo.pojo.StuSelectResult;
-import net.fuzui.StudentInfo.pojo.Student;
+import net.fuzui.StudentInfo.pojo.*;
 import net.fuzui.StudentInfo.service.SelectCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -155,5 +152,21 @@ public class SelectCourseServiceImpl implements SelectCourseService {
         data.put("pageSize",pageSize);
         data.put("cid",cid);
         return selectCourseMapper.getByStuSid(data);
+    }
+
+    /**
+     * 查询学生cid的课程成绩及其学生信息
+     * @param pageNo
+     * @param pageSize
+     * @param cid
+     * @return
+     */
+    @Override
+    public List<StudentGrade> getByStuGrade(int pageNo, int pageSize, String cid) {
+        Map<String,Object> data = new HashMap<String,Object>();
+        data.put("pageNo",(pageNo-1) * pageSize);
+        data.put("pageSize",pageSize);
+        data.put("cid",cid);
+        return selectCourseMapper.getByStuGrade(data);
     }
 }

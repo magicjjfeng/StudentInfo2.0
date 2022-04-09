@@ -44,6 +44,18 @@
         <result column="college" property="college" />
     </resultMap>
 
+    <!--学生成绩-->
+    <resultMap type="studentGrade" id="resultListStudentGrade">
+        <result column="sid" property="sid" />
+        <result column="sname" property="sname" />
+        <result column="ssex" property="ssex" />
+        <result column="classr" property="classr" />
+        <result column="profession" property="profession" />
+        <result column="college" property="college" />
+        <result column="grade" property="grade"/>
+        <result column="credits" property="credits"/>
+    </resultMap>
+
     <!-- 选课 -->
     <insert id="selectCourse">
 		insert into sc(cid,sid)
@@ -92,6 +104,11 @@
     <!-- 查看课程的学生详细信息 -->
     <select id="getByStuSid" parameterType="map" resultMap="resultListStudent">
         SELECT * from student,sc where student.sid=sc.sid and cid = #{cid} <!-- limit #{pageNo} , #{pageSize} -->
+    </select>
+
+    <!--通过cid查询课程的学生成绩及其学生信息 -->
+    <select id="getByStuGrade" parameterType="map" resultMap="resultListStudentGrade">
+        SELECT s.sid,s.Sname,s.Ssex,s.Classr,s.profession,s.college,g.grade,g.credits from grade g,student s where s.Sid = g.sid and g.cid = #{cid}
     </select>
 
 </mapper>

@@ -43,6 +43,18 @@ public class CoursePlan implements java.io.Serializable {
 
     }
 
+    public CoursePlan(String courseclass, String coursetime, String courseweek, String cid, String tid, String classroom, String credits, String period, String totalnum) {
+        this.courseclass = courseclass;
+        this.coursetime = coursetime;
+        this.courseweek = courseweek;
+        this.cid = cid;
+        this.tid = tid;
+        this.classroom = classroom;
+        this.credits = credits;
+        this.period = period;
+        this.totalnum = totalnum;
+    }
+
     /**
      *  置取方法
      */
@@ -118,5 +130,19 @@ public class CoursePlan implements java.io.Serializable {
         this.totalnum = totalnum;
     }
 
+    @Override
+    public String toString() {
+        return "CoursePlan{" +
+                "courseclass='" + courseclass + '\'' +
+                ", coursetime='" + coursetime + '\'' +
+                ", courseweek='" + courseweek + '\'' +
+                ", cid='" + cid + '\'' +
+                ", tid='" + tid + '\'' +
+                ", classroom='" + classroom + '\'' +
+                ", credits='" + credits + '\'' +
+                ", period='" + period + '\'' +
+                ", totalnum='" + totalnum + '\'' +
+                '}';
+    }
 }
 

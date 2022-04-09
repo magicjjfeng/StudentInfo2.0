@@ -80,6 +80,17 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     /**
+     * 预先将选课的sid和cid放入成绩表中
+     * @param cid
+     * @param sid
+     * @return
+     */
+    @Override
+    public int insertGradeByCidAndSid(String cid, String sid) {
+        return teacherMapper.insertGradeByCidAndSid(cid,sid);
+    }
+
+    /**
      *  教师登录设置
      * @param tid   教师编号（唯一）
      * @param pwd   密码

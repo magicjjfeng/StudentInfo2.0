@@ -3,6 +3,7 @@ package net.fuzui.StudentInfo.service.impl;
 
 import net.fuzui.StudentInfo.pojo.Course;
 import net.fuzui.StudentInfo.pojo.CoursePlan;
+import net.fuzui.StudentInfo.pojo.Msg;
 import net.fuzui.StudentInfo.pojo.Teacher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -194,15 +195,11 @@ public class CoursePlanTestApp {
     @Test
     public void ajaxGetCoursePlan(){
 
-        String n = null;
+        String[] s = {"12","34"};
+        String[] s2 = {"1","4"};
+        Msg msg = coursePlanServiceImpl.ajaxGetCoursePlan("物联网b151", s, s2, "110");
 
-        n = coursePlanServiceImpl.ajaxGetCoursePlan("34","6","10103");
-
-        if(n != null && !"".equals(n)){
-            System.out.println("该时间地点冲突！请重新选择");
-        }else{
-            System.out.println("该时间地点可用，请尽快安排，以免被抢先");
-        }
+        System.out.println(msg);
     }
 
     /**

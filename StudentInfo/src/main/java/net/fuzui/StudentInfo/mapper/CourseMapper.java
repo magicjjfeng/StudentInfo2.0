@@ -1,5 +1,6 @@
 package net.fuzui.StudentInfo.mapper;
 
+import ch.qos.logback.access.filter.CountingFilter;
 import net.fuzui.StudentInfo.pojo.Course;
 
 import java.util.List;
@@ -62,6 +63,7 @@ public interface CourseMapper {
      */
     public List<Course> getByCourseCid(Map<String, Object> data);
 
+    public Course getByCourseByCid(String cid);
     /**
      * 根据课程名称查询课程信息
      * @param data

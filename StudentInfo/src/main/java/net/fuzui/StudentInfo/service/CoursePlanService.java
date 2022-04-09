@@ -2,10 +2,9 @@ package net.fuzui.StudentInfo.service;
 
 import net.fuzui.StudentInfo.pojo.CourseGrade;
 import net.fuzui.StudentInfo.pojo.CoursePlan;
-import org.springframework.stereotype.Service;
+import net.fuzui.StudentInfo.pojo.Msg;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @ProjectName: StudentInfo
@@ -91,7 +90,7 @@ public interface CoursePlanService {
      * @param classroom     上课教师
      * @return  查询结果
      */
-    public String ajaxGetCoursePlan(String coursetime, String courseweek, String classroom);
+    public Msg ajaxGetCoursePlan(String courseclass, String[] coursetime, String[] courseweek, String classroom);
 
     /**
      *  根据课程编号查询该课程，用于查询是否有有安排课程

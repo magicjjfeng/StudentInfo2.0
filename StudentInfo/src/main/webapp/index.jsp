@@ -85,12 +85,6 @@ body {
 			<div class="col-md-12">
 				<h4 class="text-center animated bounceInDown">学生信息管理系统</h4>
 
-
-
-
-
-
-
 				<!-- 轮播图部分-->
 
 				<div class="wwze">
@@ -127,39 +121,39 @@ body {
 					<div id="demo" class="carousel slide" data-ride="carousel">
 
 						<!-- 指示符 -->
-						<ul class="carousel-indicators">
-							<li data-target="#demo" data-slide-to="0" class="active"></li>
-							<li data-target="#demo" data-slide-to="1"></li>
-							<li data-target="#demo" data-slide-to="2"></li>
-							<li data-target="#demo" data-slide-to="4"></li>
-						</ul>
+<%--						<ul class="carousel-indicators">--%>
+<%--							<li data-target="#demo" data-slide-to="0" class="active"></li>--%>
+<%--							<li data-target="#demo" data-slide-to="1"></li>--%>
+<%--							<li data-target="#demo" data-slide-to="2"></li>--%>
+<%--							<li data-target="#demo" data-slide-to="4"></li>--%>
+<%--						</ul>--%>
 
 						<!-- 轮播图片 -->
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<a data-toggle="modal" data-target="#myModal" href=""><img
-									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/img001.png"></a>
-							</div>
-							<div class="carousel-item">
-								<a href="https://github.com/fuzui/" target="_blank"><img
-									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/github.jpg"></a>
-							</div>
-							<div class="carousel-item">
-								<a href="https://fuzui.net" target="_blank"><img
-									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/myblog.jpg"></a>
-							</div>
-							<div class="carousel-item">
-								<a href="https://blog.csdn.net/qq_39329616" target="_blank"><img
-									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/myinfo.jpg"></a>
-							</div>
+<%--							<div class="carousel-item active">--%>
+<%--								<a data-toggle="modal" data-target="#myModal" href=""><img--%>
+<%--									src="/utils/image/carousel/studentLogo.jpg"></a>--%>
+<%--							</div>--%>
+<%--							<div class="carousel-item">--%>
+<%--								<a href="https://github.com/fuzui/" target="_blank"><img--%>
+<%--									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/github.jpg"></a>--%>
+<%--							</div>--%>
+<%--							<div class="carousel-item">--%>
+<%--								<a href="https://fuzui.net" target="_blank"><img--%>
+<%--									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/myblog.jpg"></a>--%>
+<%--							</div>--%>
+<%--							<div class="carousel-item">--%>
+<%--								<a href="https://blog.csdn.net/qq_39329616" target="_blank"><img--%>
+<%--									src="https://fuzui.oss-cn-shenzhen.aliyuncs.com/img/myinfo.jpg"></a>--%>
+<%--							</div>--%>
 						</div>
 
 						<!-- 左右切换按钮 -->
-						<a class="carousel-control-prev" href="#demo" data-slide="prev">
-							<span class="carousel-control-prev-icon"></span>
-						</a> <a class="carousel-control-next" href="#demo" data-slide="next">
-							<span class="carousel-control-next-icon"></span>
-						</a>
+<%--						<a class="carousel-control-prev" href="#demo" data-slide="prev">--%>
+<%--							<span class="carousel-control-prev-icon"></span>--%>
+<%--						</a> <a class="carousel-control-next" href="#demo" data-slide="next">--%>
+<%--							<span class="carousel-control-next-icon"></span>--%>
+<%--						</a>--%>
 
 					</div>
 				</div>

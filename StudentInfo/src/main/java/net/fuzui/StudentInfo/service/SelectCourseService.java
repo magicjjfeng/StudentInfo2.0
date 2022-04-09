@@ -1,9 +1,6 @@
 package net.fuzui.StudentInfo.service;
 
-import net.fuzui.StudentInfo.pojo.SC;
-import net.fuzui.StudentInfo.pojo.StuExitSelect;
-import net.fuzui.StudentInfo.pojo.StuSelectResult;
-import net.fuzui.StudentInfo.pojo.Student;
+import net.fuzui.StudentInfo.pojo.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -98,5 +95,14 @@ public interface SelectCourseService {
      * @return
      */
     public List<Student> getByStuSid(int pageNo, int pageSize, String cid);
+
+    /**
+     * 查询学生cid的课程成绩及其学生信息
+     * @param pageNo
+     * @param pageSize
+     * @param cid
+     * @return
+     */
+    public List<StudentGrade> getByStuGrade(int pageNo, int pageSize, String cid);
 
 }

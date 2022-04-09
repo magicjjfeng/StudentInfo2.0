@@ -22,4 +22,11 @@ public interface GradeService {
      */
     public List<Grade> getEedCourseBySid(int pageNo, int pageSize, String sid);
 
+    /**
+     * 通过cid查询相应的成绩信息
+     *
+     */
+
+    public List<Grade> getByCid(String cid);
+
 }

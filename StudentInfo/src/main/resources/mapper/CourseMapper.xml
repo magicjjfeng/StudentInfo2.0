@@ -69,4 +69,8 @@
 		select cid from course where cid = #{cid}
 	</select>
 
+	<select id="getByCourseByCid" parameterType="string" resultType="net.fuzui.StudentInfo.pojo.Course">
+		select * from course c where c.cid = #{cid}
+	</select>
+
 </mapper>

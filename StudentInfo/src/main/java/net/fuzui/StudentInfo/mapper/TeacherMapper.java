@@ -84,5 +84,10 @@ public interface TeacherMapper {
      */
     public String ajaxQueryByTid(String tid);
 
+    /**
+     *
+     */
+    public int insertGradeByCidAndSid(String cid,String sid);
+
 
 }
