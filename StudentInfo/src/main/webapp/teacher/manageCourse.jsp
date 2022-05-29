@@ -67,10 +67,10 @@
 
 
 						<td><a class="btn btn-default"
-							href="/StudentInfo/CoursePlanHandler/modicouplan/${courseplan.courseclass}">
+							href="/StudentInfo/CoursePlanHandler/modicouplan/${courseplan.cid}">
 								修改 </a></td>
 						<td><a class="btn btn-default"
-							href="/StudentInfo/CoursePlanHandler/delcouplan/${courseplan.courseclass}/${tid}">
+							href="/StudentInfo/CoursePlanHandler/delcouplan/${courseplan.cid}/${tid}">
 								删除 </a></td>
 
 					</tr>

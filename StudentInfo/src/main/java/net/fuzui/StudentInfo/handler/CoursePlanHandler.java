@@ -164,13 +164,13 @@ public class CoursePlanHandler {
 	}
 
 	//修改课程方案
-	@RequestMapping("/modicouplan/{courseclass}")
-	public String modiCouPlan(@PathVariable(value = "courseclass") String courseclass, Model model,
+	@RequestMapping("/modicouplan/{cid}")
+	public String modiCouPlan(@PathVariable(value = "cid") String cid, Model model,
 			HttpSession httpSession) {
 		
 		List<CoursePlan> cPlanList = new ArrayList<CoursePlan>();
 
-		cPlanList = coursePlanService.getByCoursePlanCourseclass(1,10,courseclass);
+		cPlanList = coursePlanService.getByCoursePlanCourseclass(1,10,cid);
 
 		if (cPlanList != null) {
 			httpSession.setAttribute("cPlanList", cPlanList);
@@ -196,12 +196,12 @@ public class CoursePlanHandler {
 	}
 
 	//删除
-	@RequestMapping("/delcouplan/{courseclass}/{tid}")
-	public ModelAndView modityCouPlan(@PathVariable(value = "courseclass") String courseclass,
+	@RequestMapping("/delcouplan/{cid}/{tid}")
+	public ModelAndView modityCouPlan(@PathVariable(value = "cid") String cid,
 			@PathVariable(value = "tid") String tid, HttpSession httpSession) {
 		
 
-		if (coursePlanService.deleteCoursePlan(courseclass) != 0) {
+		if (coursePlanService.deleteCoursePlan(cid) != 0) {
 			
 			httpSession.removeAttribute("couList");
 			httpSession.removeAttribute("coursePlanList");

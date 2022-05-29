@@ -26,16 +26,8 @@
 			function() {
 				$("#addCourse").click(
 						function() {
-							<%--var s1 = ${sessionScope.tid };--%>
-							<%--var s2 = "/1";--%>
-							var curPath = window.document.location.href;
-							//获取主机地址之后的目录，
-							var pos = curPath.indexOf(pathName);
-							//获取主机地址
-							var localhostPaht = curPath.substring(0, pos);
-							// alert(localhostPaht);
-							var jumpQuery = `180.76.98.159:8080/StudentInfo/TeacherHandler/managecou/${tid}`+"/1";
-							alert(jumpQuery);
+
+							var jumpQuery = `http://localhost:8080/StudentInfo/TeacherHandler/managecou/${tid}`+"/1";
 							var arrayObj = new Array();
 							var arr2 = new Array();
 							for(var i = 1;i<=document.getElementsByName('coursetime').length;i++){

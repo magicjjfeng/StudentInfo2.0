@@ -42,12 +42,14 @@ public class CoursePlanServiceImpl implements CoursePlanService {
 
     /**
      *  根据排课班级名删除课程信息信息
-     * @param courseclass   排课班级名
      * @return  删除结果，!=0则删除成功
      */
     @Override
-    public int deleteCoursePlan(String courseclass) {
-        return coursePlanMapper.deleteCoursePlan(courseclass);
+    public int deleteCoursePlan(String cid) {
+        coursePlanMapper.deleteSC(cid);
+        coursePlanMapper.deleteGrade(cid);
+
+        return coursePlanMapper.deleteCoursePlan(cid);
     }
 
     /**
@@ -64,16 +66,16 @@ public class CoursePlanServiceImpl implements CoursePlanService {
      * 根据排课班级名查询课程安排信息
      * @param pageNo
      * @param pageSize
-     * @param courseclass   开课班级名
+     * @param cid   开课班级名
      * @return  查询结果
      */
     @Override
-    public List<CoursePlan> getByCoursePlanCourseclass(int pageNo, int pageSize, String courseclass) {
+    public List<CoursePlan> getByCoursePlanCourseclass(int pageNo, int pageSize, String cid) {
         Map<String,Object> data = new HashMap<String,Object>();
         data.put("pageNo",(pageNo-1) * pageSize);
         data.put("pageSize",pageSize);
-        data.put("courseclass",courseclass);
-        return coursePlanMapper.getByCoursePlanCourseclass(data);
+        data.put("cid",cid);
+        return coursePlanMapper.getTidByCoursePlanCid(data);
     }
 
     /**

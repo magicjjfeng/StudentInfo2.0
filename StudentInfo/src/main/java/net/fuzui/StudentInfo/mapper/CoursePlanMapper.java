@@ -33,7 +33,7 @@ public interface CoursePlanMapper {
      * @param courseclass   排课班级名
      * @return  删除结果，!=0则删除成功
      */
-    public int deleteCoursePlan(String courseclass);
+    public int deleteCoursePlan(String cid);
 
     /**
      *  修改课程信息
@@ -52,7 +52,7 @@ public interface CoursePlanMapper {
      * @param data
      * @return  查询结果
      */
-    public List<CoursePlan> getByCoursePlanCourseclass(Map<String, Object> data);
+//    public List<CoursePlan> getByCoursePlanCourseclass(Map<String, Object> data);
 
     /**
      * 根据教师id查询该教师所安排课程信息
@@ -105,5 +105,9 @@ public interface CoursePlanMapper {
      * @return  查询结果
      */
     public List<CourseGrade> getCourseGrade(Map<String, Object> data);
+
+    public int deleteSC(String cid);
+
+    public int deleteGrade(String cid);
 
 }

@@ -136,10 +136,11 @@ public class AjaxHandler {
 		courseweek1 = courseweek1.substring(4,courseweek1.length()-1);
 		CoursePlan coursePlan = new CoursePlan(courseclass,coursetime1,courseweek1,cid,tid,classroom,credits,period,totalnum);
 //		System.out.println(coursePlan);
-		if (coursePlanService.insertCoursePlan(coursePlan) != 0) {
+		if(msg.getCode() != 100 && msg.getCode() != 200){
+			coursePlanService.insertCoursePlan(coursePlan);
 			return msg;
 		} else {
-			return Msg.fail3();
+			return msg;
 //			return new ModelAndView(new RedirectView("/StudentInfo/fail.jsp"));
 		}
 

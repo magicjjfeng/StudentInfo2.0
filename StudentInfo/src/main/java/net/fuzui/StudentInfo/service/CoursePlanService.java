@@ -33,7 +33,7 @@ public interface CoursePlanService {
      * @param courseclass   排课班级名
      * @return  删除结果，!=0则删除成功
      */
-    public int deleteCoursePlan(String courseclass);
+    public int deleteCoursePlan(String cid);
 
     /**
      *  修改课程信息
@@ -51,10 +51,10 @@ public interface CoursePlanService {
      * 根据排课班级名查询课程安排信息
      * @param pageNo
      * @param pageSize
-     * @param courseclass   开课班级名
+     * @param cid   开课班级名
      * @return  查询结果
      */
-    public List<CoursePlan> getByCoursePlanCourseclass(int pageNo, int pageSize, String courseclass);
+    public List<CoursePlan> getByCoursePlanCourseclass(int pageNo, int pageSize, String cid);
 
     /**
      * 根据教师id查询该教师所安排课程信息

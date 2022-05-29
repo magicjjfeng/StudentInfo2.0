@@ -34,7 +34,15 @@
 
 	<!-- 根据开课班级名删除课程安排信息 -->
 	<delete id="deleteCoursePlan" parameterType="String">
-		delete from courseplan where courseclass=#{courseclass}
+		delete from courseplan where cid=#{cid}
+	</delete>
+
+	<delete id="deleteGrade" parameterType="string">
+		delete from grade where cid = #{cid}
+	</delete>
+
+	<delete id="deleteSC" parameterType="string">
+		delete from sc where cid = #{cid}
 	</delete>
 
 	<!-- 根据开课班级名修改课程安排信息 -->
@@ -44,10 +52,10 @@
 		where courseclass =#{courseclass}
 	</update>
 
-	<!-- 根据排课班级名查询课程安排信息 -->
-	<select id="getByCoursePlanCourseclass" parameterType="map" resultMap="resultListCoursePlan">
-		select * from courseplan where courseclass = #{courseclass} <!-- limit #{pageNo} , #{pageSize} -->
-	</select>
+<!--	&lt;!&ndash; 根据排课班级名查询课程安排信息 &ndash;&gt;-->
+<!--	<select id="getByCoursePlanCourseclass" parameterType="map" resultMap="resultListCoursePlan">-->
+<!--		select * from courseplan where cid = #{cid} &lt;!&ndash; limit #{pageNo} , #{pageSize} &ndash;&gt;-->
+<!--	</select>-->
 
 	<!-- 根据教师id查询该教师所安排课程信息 -->
 	<select id="getByCoursePlanTid" parameterType="map" resultMap="resultListCoursePlan">
