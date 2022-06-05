@@ -5,10 +5,6 @@ package net.fuzui.StudentInfo.pojo;
  * @Package: net.fuzui.StudentInfo.pojo
  * @ClassName: CoursePlan
  * @Description: 课程安排实体类
- * @Author: 王泽
- * @CreateDate: 2019-04-06 16:28
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-06 16:28
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

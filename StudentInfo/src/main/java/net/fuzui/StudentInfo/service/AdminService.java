@@ -7,10 +7,6 @@ import org.springframework.stereotype.Service;
  * @Package: net.fuzui.StudentInfo.service
  * @ClassName: AdminService
  * @Description: 管理员service接口
- * @Author: 王泽
- * @CreateDate: 2019-04-09 22:03
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-09 22:03
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

@@ -15,10 +15,6 @@ import java.util.Map;
  * @Package: net.fuzui.StudentInfo.service.impl
  * @ClassName: TeacherServiceImpl
  * @Description: java类作用描述
- * @Author: 王泽
- * @CreateDate: 2019-04-09 20:02
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-09 20:02
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */

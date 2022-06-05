@@ -7,10 +7,6 @@ import org.apache.ibatis.annotations.Param;
  * @Package: net.fuzui.StudentInfo.mapper
  * @ClassName: AdminMapper
  * @Description: 管理员数据访问层接口
- * @Author: 王泽
- * @CreateDate: 2019-04-09 21:59
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-09 21:59
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

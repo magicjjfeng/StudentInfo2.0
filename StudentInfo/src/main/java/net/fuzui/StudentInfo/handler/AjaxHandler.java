@@ -23,8 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
- * @author fuzui
- * @date 2019年4月13日 下午5:32:39
+ * ajax的congtroller层，相应的查询数据是否存在
  * 
  */
 @Controller
@@ -113,11 +112,13 @@ public class AjaxHandler {
 	
 	@RequestMapping(value="/existTime",method = RequestMethod.POST)
 	@ResponseBody
-	public Msg existTime(@RequestParam("courseclass") String courseclass,
+	public Msg existTime(@RequestParam(value = "courseclass",defaultValue = "") String courseclass,
 						 @RequestParam("classroom") String classroom,
-						 @RequestParam("cid") String cid,@RequestParam("tid") String tid,
+						 @RequestParam(value = "cid",defaultValue = "") String cid,@RequestParam(value = "tid",defaultValue = "") String tid,
 						 @RequestParam("credits") String credits,@RequestParam("period") String period,
-						 @RequestParam("totalnum") String totalnum, HttpServletResponse response, HttpServletRequest request) throws IOException{
+						 @RequestParam("totalnum") String totalnum,
+                         @RequestParam(value = "type",defaultValue = "") String type,
+                         HttpServletResponse response, HttpServletRequest request) throws IOException{
 
 
 		String courseweek1 = null;
@@ -137,7 +138,11 @@ public class AjaxHandler {
 		CoursePlan coursePlan = new CoursePlan(courseclass,coursetime1,courseweek1,cid,tid,classroom,credits,period,totalnum);
 //		System.out.println(coursePlan);
 		if(msg.getCode() != 100 && msg.getCode() != 200){
-			coursePlanService.insertCoursePlan(coursePlan);
+            if("addCourse".equals(type.toString())){
+                coursePlanService.insertCoursePlan(coursePlan);
+            }else if("changeCourse".equals(type.toString())){
+                coursePlanService.modifyCoursePlan(coursePlan);
+            }
 			return msg;
 		} else {
 			return msg;

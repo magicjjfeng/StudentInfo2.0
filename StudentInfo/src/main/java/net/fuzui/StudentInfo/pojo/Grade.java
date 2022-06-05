@@ -1,7 +1,7 @@
 package net.fuzui.StudentInfo.pojo;
 /**
  * 成绩实体类
- * @author wangze
+ * @author fjj
  *
  */
 public class Grade {

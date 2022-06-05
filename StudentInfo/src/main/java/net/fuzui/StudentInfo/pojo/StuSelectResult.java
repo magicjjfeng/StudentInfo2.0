@@ -5,10 +5,6 @@ package net.fuzui.StudentInfo.pojo;
  * @Package: net.fuzui.StudentInfo.pojo
  * @ClassName: StuSelectResult
  * @Description: 选课结果实体类
- * @Author: 王泽
- * @CreateDate: 2019-04-06 16:47
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-06 16:47
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

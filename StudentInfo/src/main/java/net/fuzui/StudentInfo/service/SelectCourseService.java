@@ -11,10 +11,6 @@ import java.util.Map;
  * @Package: net.fuzui.StudentInfo.service
  * @ClassName: SelectCourseService
  * @Description: 选课service接口层
- * @Author: 王泽
- * @CreateDate: 2019-04-10 20:55
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-10 20:55
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

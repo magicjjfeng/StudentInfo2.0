@@ -1,9 +1,5 @@
 package net.fuzui.StudentInfo.mysql_rws;
-/**
- * @author fuzui
- * @date 2019年3月17日 下午5:47:47
- * 
- */
+
 //使用ThreadLocal技术来记录当前线程中的数据源的key
 public class DynamicDataSourceHolder {
 

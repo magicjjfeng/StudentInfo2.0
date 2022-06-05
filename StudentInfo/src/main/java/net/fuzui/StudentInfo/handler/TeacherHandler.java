@@ -31,9 +31,8 @@ import net.fuzui.StudentInfo.service.StudentService;
 import net.fuzui.StudentInfo.service.TeacherService;
 
 /**
- * @author fuzui
- * @date 2019年4月11日 下午5:22:15
- * 
+ *
+ * 教师用户的controller层，用于教师角色的页面操作接口
  */
 @Controller
 @RequestMapping("/TeacherHandler")

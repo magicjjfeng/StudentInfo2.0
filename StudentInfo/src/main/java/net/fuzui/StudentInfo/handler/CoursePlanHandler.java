@@ -32,10 +32,6 @@ import net.fuzui.StudentInfo.service.CourseService;
  * @Package: net.fuzui.StudentInfo.handler
  * @ClassName: CoursePlanHandler
  * @Description: 类描述
- * @Author: 王泽
- * @CreateDate: 2019年4月11日 下午4:26:12
- * @UpdateUser: 王泽
- * @UpdateDate: 2019年4月11日 下午4:26:12
  * @UpdateRemark: 新建
  * @Version: 1.0
  */
@@ -186,6 +182,8 @@ public class CoursePlanHandler {
 	//修改
 	@RequestMapping("/moditycouplan/{tid}")
 	public ModelAndView modityCouPlan(@PathVariable(value = "tid") String tid, CoursePlan coursePlan) {
+        //判断课程的时间周，地点等是否与其他班级有冲突
+        System.out.println(coursePlan);
 
 		if (coursePlanService.modifyCoursePlan(coursePlan) != 0) {
 			return new ModelAndView(new RedirectView("/StudentInfo/TeacherHandler/managecou/{tid}/1"));

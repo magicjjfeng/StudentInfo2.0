@@ -48,13 +48,15 @@
 								url: "/StudentInfo/AjaxHandler/existTime/",
 								// data:{"courseTime:":JSON.stringify(arrayObj),"courseweek:":$("#courseweek").val() ,"classroom:":$("#classroom")},
 								data: {"courseclass":$("#courseclass").val(),
-									"classroom":$("#classroom").val(),"courseweek":arr2,
+									"classroom":$("#classroom").val(),
+                                    "courseweek":arr2,
 									"courseTime": arrayObj,
 									"cid": ${cid},
 									"tid": ${tid},
 									"credits": $("#credits").val(),
 									"period": $("#period").val(),
-									"totalnum": $("#totalnum").val()
+									"totalnum": $("#totalnum").val(),
+                                    "type": "addCourse"
 								},
 								// contentType : "application/json",
 								success:function (result){

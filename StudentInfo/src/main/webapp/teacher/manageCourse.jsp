@@ -19,8 +19,9 @@
 <!-- Loading Flat UI JS -->
 <script type="text/javascript" src="/StudentInfo/utils/scripts/flat-ui.min.js"></script>
 
-<script type='text/javascript' src='/StudentInfo/utils/scripts/particles.js'></script><link href="/StudentInfo/utils/css/animate.css" rel="stylesheet"></head>
+<script type='text/javascript' src='/StudentInfo/utils/scripts/particles.js'>
 
+</script><link href="/StudentInfo/utils/css/animate.css" rel="stylesheet"></head>
 
 
 

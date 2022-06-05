@@ -12,10 +12,6 @@ import java.util.Map;
  * @Package: net.fuzui.StudentInfo.mapper
  * @ClassName: CoursePlanMapper
  * @Description: 课程安排数据接口层
- * @Author: 王泽
- * @CreateDate: 2019-04-10 15:22
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-10 15:22
  * @UpdateRemark: 新建
  * @Version: 1.0
  */
@@ -30,7 +26,7 @@ public interface CoursePlanMapper {
 
     /**
      *  根据排课班级名删除课程信息信息
-     * @param courseclass   排课班级名
+     * @param cid   排课班级名
      * @return  删除结果，!=0则删除成功
      */
     public int deleteCoursePlan(String cid);

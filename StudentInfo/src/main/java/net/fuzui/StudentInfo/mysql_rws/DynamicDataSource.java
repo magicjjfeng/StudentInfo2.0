@@ -8,11 +8,6 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
- * @author fuzui
- * @date 2019年3月17日 下午5:32:02
- * 
- */
-/**
  * 获取数据源，用于动态切换数据源
  * 实现Spring提供的AbstractRoutingDataSource，只需要实现determineCurrentLookupKey方法即可，
  * 由于DynamicDataSource是单例的，线程不安全的，所以采用ThreadLocal保证线程安全，

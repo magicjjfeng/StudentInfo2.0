@@ -16,11 +16,6 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import org.slf4j.Logger;
 
 /**
- * @author fuzui
- * @date 2019年3月17日 下午5:58:43
- * 
- */
-/**
  *  Mybatis插件，通过拦截Executor方式实现
  * */
 @Intercepts({

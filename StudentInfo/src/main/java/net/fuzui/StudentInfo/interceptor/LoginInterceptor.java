@@ -12,10 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
  * @Package: net.fuzui.StudentInfo.interceptor
  * @ClassName: LoginInterceptor
  * @Description: 登录拦截器
- * @Author: 王泽
- * @CreateDate: 2019年4月12日 下午3:37:19
- * @UpdateUser: 王泽
- * @UpdateDate: 2019年4月12日 下午3:37:19
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

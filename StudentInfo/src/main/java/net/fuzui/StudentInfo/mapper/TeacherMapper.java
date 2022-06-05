@@ -11,10 +11,6 @@ import java.util.Map;
  * @Package: net.fuzui.StudentInfo.mapper
  * @ClassName: TeacherMapper
  * @Description: 教师数据访问层接口
- * @Author: 王泽
- * @CreateDate: 2019-04-09 19:44
- * @UpdateUser: 王泽
- * @UpdateDate: 2019-04-09 19:44
  * @UpdateRemark: 新建
  * @Version: 1.0
  */

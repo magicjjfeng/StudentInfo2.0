@@ -17,6 +17,64 @@
 
 <script type='text/javascript' src='/StudentInfo/utils/scripts/particles.js'></script><link href="/StudentInfo/utils/css/animate.css" rel="stylesheet"></head>
 
+<script type="text/javascript">
+    $(document).ready(
+        function() {
+            $("#changeCourse").click(
+                function() {
+                    alert("111")
+
+                    var jumpQuery = `http://localhost:8080/StudentInfo/TeacherHandler/managecou/${tid}`+"/1";
+                    var arrayObj = new Array();
+                    var arr2 = new Array();
+                    for(var i = 1;i<=document.getElementsByName('coursetime').length;i++){
+                        if(document.getElementById('coursetime'+i).checked){
+                            arrayObj.push(document.getElementById('coursetime'+i).value);
+
+                        };
+                    };
+
+                    for(var n=1; n<= document.getElementsByName('courseweek').length;n++){
+                        if(document.getElementById('courseweek'+n).checked){
+                            arr2.push(document.getElementById('courseweek'+n).value)
+                        };
+                    };
+                    alert(arr2);
+                    alert(arrayObj);
+                    // alert($("#courseclass").val());
+                    alert($("#credits").val());
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/StudentInfo/AjaxHandler/existTime/",
+                        // data:{"courseTime:":JSON.stringify(arrayObj),"courseweek:":$("#courseweek").val() ,"classroom:":$("#classroom")},
+                        data: {"courseclass":$("#courseclass").val(),
+                            "classroom":$("#classroom").val(),
+                            "courseweek":arr2,
+                            "courseTime": arrayObj,
+                            "cid": ${cid},
+                            "tid": ${tid},
+                            "credits": $("#credits").val(),
+                            "period": $("#period").val(),
+                            "totalnum": $("#totalnum").val(),
+                            "type": "changeCourse"
+                        },
+                        // contentType : "application/json",
+                        success:function (result){
+                            if(result.code == "100" || result.code == "200" || result.code == "400"){
+                                // addCourse.style.
+                                alert(result.msg)
+                            }else if(result.code == 300){
+                                // alert("添加成功");
+
+                                location.href=jumpQuery;
+                            }
+                        }
+                    });
+                })
+
+        })
+</script>
 
 
 
@@ -33,7 +91,7 @@
 					<div class="col-md-6">
 						<br /> 新建班级名称
 			
-			 <input type="text" name="courseclass" value="${cplan.courseclass}" class="form-control" readOnly/>
+			 <input type="text" name="courseclass" id="courseclass" value="${cplan.courseclass}" class="form-control" readOnly/>
 			上课时间
 					${cplan.coursetime}节 选择
 			
@@ -98,12 +156,12 @@
 					<h6>课程编号</h6>
 					<div class="row">
 			<div class="col-md-6">
-				<input type="text" name="cid" value="${cplan.cid}" class="form-control" readonly/>
+				<input type="text" name="cid" id="cid" value="${cplan.cid}" class="form-control" readonly/>
 			</div></div>
 			<h6>教师编号 </h6>
 			<div class="row">
 			<div class="col-md-6">
-				<input type="text" name="tid" value="${sessionScope.tid}" class="form-control" readonly/> 
+				<input type="text" name="tid" id="tid" value="${sessionScope.tid}" class="form-control" readonly/>
 			</div></div>
 			<h6>上课教室 </h6>
 			<div class="row">
@@ -114,25 +172,28 @@
 			<h6>学分 </h6>
 			<div class="row">
 			<div class="col-md-6">
-			 <input type="text" name="credits" class="form-control" value="${cplan.credits}" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="1"/>
+			 <input type="text" name="credits" id="credits" class="form-control" value="${cplan.credits}" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="1"/>
 			 </div></div>
 			 <h6>学时</h6>
 			 <div class="row">
 			 <div class="col-md-6">
-			 <input type="text" name="period" class="form-control" value="${cplan.period }" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="2"/> 
+			 <input type="text" name="period" id="period" class="form-control" value="${cplan.period }" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="2"/>
 			 </div></div>
 			 <h6>总人数</h6>
 			 <div class="row">
 			 <div class="col-md-6">
-			 <input type="text" name="totalnum" class="form-control" value="${cplan.totalnum }" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="2"/>
-			 </div></div>
+			 <input type="text" name="totalnum" id="totalnum" class="form-control" value="${cplan.totalnum }" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="2"/>
+			 </div>
+             </div>
 					</div>
-					<div class="col-md-12" style="margin-top:1rem;"><input type="submit" value="修改" class="btn btn-primary btn-wide login-btn"/>
-					</div>
+
 				</div>
 			</form>
 
 			</c:forEach>
+            <div class="col-md-12" style="margin-top:1rem;">
+                <input type="submit" value="修改" name="changeCourese" id="changeCourse" class="btn btn-primary btn-wide login-btn"/>
+            </div>
 		</div>
 	</div>
 </div>				
